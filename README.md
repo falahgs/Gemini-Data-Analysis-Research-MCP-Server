@@ -1,5 +1,7 @@
 # Gemini Data Analysis & Research MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@falahgs/gemini-data-analysis-research-mcp-server)](https://smithery.ai/server/@falahgs/gemini-data-analysis-research-mcp-server)
+
 A powerful Model Context Protocol (MCP) server that leverages Google's Gemini Flash 2 AI model for comprehensive data analysis, research paper generation, and automated email delivery. This server provides an integrated solution for analyzing datasets, generating research content, and distributing results directly to stakeholders via email.
 
 ## 🚀 Features
@@ -51,6 +53,14 @@ A powerful Model Context Protocol (MCP) server that leverages Google's Gemini Fl
   - Professional content creation
 
 ## 📊 Quick Start
+
+### Installing via Smithery
+
+To install Gemini Data Analysis & Research for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@falahgs/gemini-data-analysis-research-mcp-server):
+
+```bash
+npx -y @smithery/cli install @falahgs/gemini-data-analysis-research-mcp-server --client claude
+```
 
 ### Prerequisites
 - Node.js (v16 or higher)
