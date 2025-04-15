@@ -1,0 +1,43 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - geminiApiKey
+      - nodemailerEmail
+      - nodemailerPassword
+    properties:
+      geminiApiKey:
+        type: string
+        description: Google Gemini API key for authenticating with the Gemini service
+      nodemailerEmail:
+        type: string
+        description: Email address for sending emails via nodemailer
+      nodemailerPassword:
+        type: string
+        description: App password for the nodemailer email account
+      debug:
+        type: boolean
+        default: false
+        description: Enable debug logging if set to true
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        GEMINI_API_KEY: config.geminiApiKey,
+        NODEMAILER_EMAIL: config.nodemailerEmail,
+        NODEMAILER_PASSWORD: config.nodemailerPassword,
+        DEBUG: config.debug ? 'true' : 'false'
+      }
+    })
+  exampleConfig:
+    geminiApiKey: dummy_gemini_api_key
+    nodemailerEmail: test@example.com
+    nodemailerPassword: dummy_password
+    debug: false
